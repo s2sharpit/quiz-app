@@ -14,36 +14,36 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-  List<String> selectedAnswers = [];
+  List<String> _selectedAnswers = [];
 
-  Widget? activeScreen;
+  Widget? _activeScreen;
 
   @override
   void initState() {
-    activeScreen = StartScreen(switchScreen);
+    _activeScreen = StartScreen(_switchScreen);
     super.initState();
   }
 
-  void switchScreen() {
+  void _switchScreen() {
     setState(() {
-      activeScreen = QuestionsScreen(onSelectAnswer: chooseAnswer);
+      _activeScreen = QuestionsScreen(onSelectAnswer: _chooseAnswer);
     });
   }
 
-  void chooseAnswer(String answer) {
-    selectedAnswers.add(answer);
+  void _chooseAnswer(String answer) {
+    _selectedAnswers.add(answer);
 
-    if (selectedAnswers.length == questions.length) {
+    if (_selectedAnswers.length == questions.length) {
       setState(() {
-        activeScreen = ResultScreen(selectedAnswers, restartQuiz);
+        _activeScreen = ResultScreen(_selectedAnswers, restartQuiz);
       });
     }
   }
 
   void restartQuiz() {
     setState(() {
-      selectedAnswers = [];
-      activeScreen = QuestionsScreen(onSelectAnswer: chooseAnswer);
+      _selectedAnswers = [];
+      _activeScreen = QuestionsScreen(onSelectAnswer: _chooseAnswer);
     });
   }
 
@@ -62,7 +62,7 @@ class _QuizState extends State<Quiz> {
               end: Alignment.bottomRight,
             ),
           ),
-          child: activeScreen,
+          child: _activeScreen,
         ),
       ),
     );
