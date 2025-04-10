@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "D:/Coding/Flutter/quiz_app/windows"
+    "cmake.sourceDirectory": "D:/Coding/Flutter/quiz_app/windows",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
